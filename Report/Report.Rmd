@@ -33,6 +33,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE, cache=TRUE, messages=FALSE, warning=FALSE)
 library(ggplot2)
 library(readr)
+library(dplyr)
 ```
 
 ```{r}
@@ -41,3 +42,30 @@ covid <- read_csv(here::here("data/worldwidecases.csv"))
 
 ```
 
+```{r covid-europe, echo = FALSE, fig.align = "center", fig.width = 6, fig.cap = "Rates of covid cases over time for selected countries"}
+
+covidrate_vis <- covid %>%
+  mutate(date= as.Date(dateRep, format = "%d/%m/%y"),
+         cases_rates = ((1000*cases/popData2018) + 0.01),
+         dead_rates = ((1000*deaths/popData2018) +0.01)) %>%
+  dplyr::filter(date != "2020-12-31") 
+  
+covidrate_vis %>%
+  #group_by(countriesAndTerritories, date) %>%
+  #summarize_at(vars(cases, deaths), cumsum) %>%
+  dplyr::filter(countriesAndTerritories %in%
+                  c("Italy", "Germany", "Greece", "Switzerland", "Sweden", "France")) %>%
+  ggplot(aes(x = date, y = cases_rates)) +
+  geom_line(color = "#1F9E8E") +
+  facet_wrap(~countriesAndTerritories) +
+  theme_bw() +
+  ggtitle("Covid cases (rates)")
+
+covidrate_vis
+
+
+```
+
+### Section 1
+
+Based on Figure \ref{fig:covid-europe}, it can be seen that Switzerland had the highest COVID cases rate among the six countries observed. In contrast, Greece's COVID cases rate was the lowest and also the most relatively stable compared to the other countries. The reference is as follows. @Gibsone252899

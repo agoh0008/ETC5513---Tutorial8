@@ -32,15 +32,6 @@
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
-\usepackage{graphicx,grffile}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -301,20 +292,46 @@
 \begin{document}
 \titlepage
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
-
-In a famous paper, \textcite{BC64} introduced a family of transformations \dots
+\begin{verbatim}
+## Rows: 16114 Columns: 11
+## -- Column specification --------------------------------------------------------
+## Delimiter: ","
+## chr (5): dateRep, countriesAndTerritories, geoId, countryterritoryCode, cont...
+## dbl (6): day, month, year, cases, deaths, popData2018
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
 
 \begin{figure}
-\centering
-\includegraphics{Report_files/figure-latex/histogram-1.pdf}
-\caption{\label{fig:histogram}Nice histogram}
+
+{\centering \includegraphics{Report_files/figure-latex/covid-europe-1} 
+
+}
+
+\caption{Rates of covid cases over time for selected countries}\label{fig:covid-europe}
 \end{figure}
 
-Consider the logNormal data plotted in Figure \ref{fig:histogram}.
+\begin{verbatim}
+## # A tibble: 16,047 x 14
+##    dateRep      day month  year cases deaths countriesAndTerritories geoId
+##    <chr>      <dbl> <dbl> <dbl> <dbl>  <dbl> <chr>                   <chr>
+##  1 10/05/2020    10     5  2020   255      6 Afghanistan             AF   
+##  2 09/05/2020     9     5  2020   215      3 Afghanistan             AF   
+##  3 08/05/2020     8     5  2020   171      2 Afghanistan             AF   
+##  4 07/05/2020     7     5  2020   168      9 Afghanistan             AF   
+##  5 06/05/2020     6     5  2020   330      5 Afghanistan             AF   
+##  6 05/05/2020     5     5  2020   190      5 Afghanistan             AF   
+##  7 04/05/2020     4     5  2020   235     13 Afghanistan             AF   
+##  8 03/05/2020     3     5  2020   134      4 Afghanistan             AF   
+##  9 02/05/2020     2     5  2020   164      4 Afghanistan             AF   
+## 10 01/05/2020     1     5  2020   222      4 Afghanistan             AF   
+## # i 16,037 more rows
+## # i 6 more variables: countryterritoryCode <chr>, popData2018 <dbl>,
+## #   continentExp <chr>, date <date>, cases_rates <dbl>, dead_rates <dbl>
+\end{verbatim}
 
-\[s^2 = \sum_{i=1}^n (x_i-\bar{x})^2\]
+Based on Figure \ref{fig:covid-europe}, it can be seen that Switzerland had the highest COVID cases rate among the six countries observed. In contrast, Greece's COVID cases rate was the lowest and also the most relatively stable compared to the other countries. This is a reference \textcite{BC64}
 
 \printbibliography
 
