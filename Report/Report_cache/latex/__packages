@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 base
 methods
 datasets
@@ -6,3 +7,19 @@ grDevices
 graphics
 stats
 ggplot2
+=======
+ggplot2
+readr
+<<<<<<< HEAD
+tidyverse
+tibble
+tidyr
+purrr
+dplyr
+stringr
+forcats
+lubridate
+=======
+dplyr
+>>>>>>> b191b9e972953546da2e59f8c8dfc006a7cf1c0a
+>>>>>>> 485449c2354ab403e0389a59214fd3b3fc68f745
