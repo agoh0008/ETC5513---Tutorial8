@@ -32,15 +32,6 @@
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
-\usepackage{graphicx,grffile}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -301,20 +292,27 @@
 \begin{document}
 \titlepage
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
-
-In a famous paper, \textcite{BC64} introduced a family of transformations \dots
+\begin{verbatim}
+## Rows: 16114 Columns: 11
+## -- Column specification --------------------------------------------------------
+## Delimiter: ","
+## chr (5): dateRep, countriesAndTerritories, geoId, countryterritoryCode, cont...
+## dbl (6): day, month, year, cases, deaths, popData2018
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
 
 \begin{figure}
-\centering
-\includegraphics{Report_files/figure-latex/histogram-1.pdf}
-\caption{\label{fig:histogram}Nice histogram}
+
+{\centering \includegraphics{Report_files/figure-latex/covidgraph-1} 
+
+}
+
+\caption{COVID cases}\label{fig:covidgraph}
 \end{figure}
 
-Consider the logNormal data plotted in Figure \ref{fig:histogram}.
-
-\[s^2 = \sum_{i=1}^n (x_i-\bar{x})^2\]
+In figure \ref{fig:covidgraph}, we observe the corona virus rates of a number european countries \ldots{}
 
 \printbibliography
 

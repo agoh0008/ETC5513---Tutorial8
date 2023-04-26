@@ -33,6 +33,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE, cache=TRUE, messages=FALSE, warning=FALSE)
 library(ggplot2)
 library(readr)
+library(tidyverse)
 ```
 
 ```{r}
@@ -40,4 +41,24 @@ library(readr)
 covid <- read_csv(here::here("data/worldwidecases.csv"))
 
 ```
+```{r covidgraph, fig.cap='COVID cases',fig.align='center'}
+covidrate_vis <- covid %>%
+ mutate(date= as.Date(dateRep, format = "%d/%m/%y"),
+        cases_rates = ((1000*cases/popData2018) + 0.01),
+        dead_rates = ((1000*deaths/popData2018) +0.01)) %>%
+ dplyr::filter(date != "2020-12-31") %>% dplyr::filter(countriesAndTerritories %in% c("Italy",
+ "Germany",
+ "Greece",
+ "Switzerland",
+ "Sweden",
+ "France")) %>%
+ ggplot(aes(x = date, y = cases_rates) ) +
+ geom_line(color = "#1F9E8E")  +
+ facet_wrap(~countriesAndTerritories) +
+ theme_bw() +
+ ggtitle("Covid cases (rates)")
+covidrate_vis
+  
+```
 
+In figure \ref{fig:covidgraph}, we observe the corona virus rates of a number european countries ...   

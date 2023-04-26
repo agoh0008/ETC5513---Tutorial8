@@ -1,8 +1,10 @@
-base
-methods
-datasets
-utils
-grDevices
-graphics
-stats
 ggplot2
+readr
+tidyverse
+tibble
+tidyr
+purrr
+dplyr
+stringr
+forcats
+lubridate
