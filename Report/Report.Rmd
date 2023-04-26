@@ -41,7 +41,9 @@ library(tidyverse)
 covid <- read_csv(here::here("data/worldwidecases.csv"))
 
 ```
-```{r covidgraph, fig.cap='COVID cases',fig.align='center'}
+#Section 2
+
+```{r covidgraph, fig.cap='COVID cases',fig.align='center',fig.width=6}
 covidrate_vis <- covid %>%
  mutate(date= as.Date(dateRep, format = "%d/%m/%y"),
         cases_rates = ((1000*cases/popData2018) + 0.01),
@@ -56,9 +58,10 @@ covidrate_vis <- covid %>%
  geom_line(color = "#1F9E8E")  +
  facet_wrap(~countriesAndTerritories) +
  theme_bw() +
- ggtitle("Covid cases (rates)")
+ ggtitle("Covid cases (rates)") 
+  
 covidrate_vis
   
 ```
 
-In figure \ref{fig:covidgraph}, we observe the corona virus rates of a number european countries ...   
+In figure \ref{fig:covidgraph}, we observe the corona virus rates of a number european countries . Here is a reference to an article @BC64 
