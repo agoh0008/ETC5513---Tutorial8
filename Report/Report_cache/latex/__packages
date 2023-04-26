@@ -1,5 +1,6 @@
 ggplot2
 readr
+<<<<<<< HEAD
 tidyverse
 tibble
 tidyr
@@ -8,3 +9,6 @@ dplyr
 stringr
 forcats
 lubridate
+=======
+dplyr
+>>>>>>> b191b9e972953546da2e59f8c8dfc006a7cf1c0a

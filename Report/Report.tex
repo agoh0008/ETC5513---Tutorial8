@@ -305,6 +305,7 @@
 
 \begin{figure}
 
+<<<<<<< HEAD
 {\centering \includegraphics{Report_files/figure-latex/covidgraph-1} 
 
 }
@@ -313,6 +314,35 @@
 \end{figure}
 
 In figure \ref{fig:covidgraph}, we observe the corona virus rates of a number european countries . Here is a reference to an article \textcite{BC64}
+=======
+{\centering \includegraphics{Report_files/figure-latex/covid-europe-1} 
+
+}
+
+\caption{Rates of covid cases over time for selected countries}\label{fig:covid-europe}
+\end{figure}
+
+\begin{verbatim}
+## # A tibble: 16,047 x 14
+##    dateRep      day month  year cases deaths countriesAndTerritories geoId
+##    <chr>      <dbl> <dbl> <dbl> <dbl>  <dbl> <chr>                   <chr>
+##  1 10/05/2020    10     5  2020   255      6 Afghanistan             AF   
+##  2 09/05/2020     9     5  2020   215      3 Afghanistan             AF   
+##  3 08/05/2020     8     5  2020   171      2 Afghanistan             AF   
+##  4 07/05/2020     7     5  2020   168      9 Afghanistan             AF   
+##  5 06/05/2020     6     5  2020   330      5 Afghanistan             AF   
+##  6 05/05/2020     5     5  2020   190      5 Afghanistan             AF   
+##  7 04/05/2020     4     5  2020   235     13 Afghanistan             AF   
+##  8 03/05/2020     3     5  2020   134      4 Afghanistan             AF   
+##  9 02/05/2020     2     5  2020   164      4 Afghanistan             AF   
+## 10 01/05/2020     1     5  2020   222      4 Afghanistan             AF   
+## # i 16,037 more rows
+## # i 6 more variables: countryterritoryCode <chr>, popData2018 <dbl>,
+## #   continentExp <chr>, date <date>, cases_rates <dbl>, dead_rates <dbl>
+\end{verbatim}
+
+Based on Figure \ref{fig:covid-europe}, it can be seen that Switzerland had the highest COVID cases rate among the six countries observed. In contrast, Greece's COVID cases rate was the lowest and also the most relatively stable compared to the other countries. This is a reference \textcite{BC64}
+>>>>>>> b191b9e972953546da2e59f8c8dfc006a7cf1c0a
 
 \printbibliography
 
